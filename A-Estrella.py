@@ -7,11 +7,11 @@ from typing import List, Tuple, Dict, Optional, Iterator
 Grid = List[List[int]]
 Coord = Tuple[int, int]
 
-ROWS = 10
-COLS = 10
-OBSTACLE_PROB = 0.2  # default probability for randomizing
+ROWS = 6
+COLS = 6
+OBSTACLE_PROB = 0.2  
 
-CELL_SIZE = 40  # pixels per cell for canvas display
+CELL_SIZE = 40  
 
 # ---------- Heuristics ----------
 def heuristic(a: Coord, b: Coord, method: str = "manhattan") -> float:
@@ -21,7 +21,7 @@ def heuristic(a: Coord, b: Coord, method: str = "manhattan") -> float:
         return dx + dy
     elif method == "euclidean":
         return math.hypot(dx, dy)
-    elif method == "octile":  # good for diagonal cost = sqrt(2)
+    elif method == "octile":  
         D = 1.0
         D2 = math.sqrt(2)
         return D * (dx + dy) + (D2 - 2 * D) * min(dx, dy)
